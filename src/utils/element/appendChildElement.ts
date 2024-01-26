@@ -1,4 +1,4 @@
-import { isUndefinedOrNull } from '.';
+import { isUndefinedOrNull } from '../../utils';
 import getElement from './getElement';
 
 interface Props {
@@ -6,11 +6,12 @@ interface Props {
   targetElement: Element;
 }
 
-const appendChildElement = ({ parentId, targetElement }: Props): void => {
+export const appendChildElement = ({
+  parentId,
+  targetElement,
+}: Props): void => {
   const parentElement = getElement(parentId);
   if (!isUndefinedOrNull(parentElement)) {
     parentElement.appendChild(targetElement);
   }
 };
-
-export default appendChildElement;

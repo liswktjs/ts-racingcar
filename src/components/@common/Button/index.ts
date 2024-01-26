@@ -1,4 +1,4 @@
-import appendChildElement from '../../../utils/appendChildElement';
+import { appendChildElement } from '../../../utils';
 import './index.css';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   clickAction: () => void;
 }
 
-const Button = ({ buttonText, parentId, clickAction, id }: Props) => {
+const Button = ({ buttonText, parentId, clickAction, id }: Props): void => {
   const button = document.createElement('button');
 
   button.innerText = buttonText;

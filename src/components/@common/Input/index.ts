@@ -1,4 +1,4 @@
-import appendChildElement from '../../../utils/appendChildElement';
+import { appendChildElement } from '../../../utils';
 import './index.css';
 
 interface Props {
