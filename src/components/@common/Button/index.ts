@@ -1,3 +1,4 @@
+import appendChildElement from '../../../utils/appendChildElement';
 import './index.css';
 
 interface Props {
@@ -15,10 +16,7 @@ const Button = ({ buttonText, parentId, clickAction, id }: Props) => {
   button.classList.add('btn');
   button.addEventListener('click', clickAction);
 
-  const parentElement = document.getElementById(parentId);
-  if (parentElement) {
-    parentElement.append(button);
-  }
+  appendChildElement({ parentId, targetElement: button });
 };
 
 export default Button;
