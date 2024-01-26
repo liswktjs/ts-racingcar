@@ -1,5 +1,4 @@
-import { isUndefinedOrNull } from '..';
-import getElement from '../element/getElement';
+import { isUndefinedOrNull, getElement } from '..';
 
 export const initInputValue = (id: string): void => {
   const target = getElement(id);

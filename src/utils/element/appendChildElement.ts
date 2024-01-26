@@ -1,5 +1,4 @@
-import { isUndefinedOrNull } from '../../utils';
-import getElement from './getElement';
+import { isUndefinedOrNull, getElement } from '../../utils';
 
 interface Props {
   parentId: string;
