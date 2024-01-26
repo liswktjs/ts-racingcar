@@ -10,7 +10,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', 'mjs', 'ts'],
+    extensions: ['.js', '.mjs', '.ts'],
   },
   module: {
     rules: [
@@ -20,6 +20,10 @@ module.exports = {
         use: {
           loader: 'ts-loader',
         },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
