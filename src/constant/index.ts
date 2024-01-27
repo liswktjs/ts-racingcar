@@ -4,4 +4,6 @@ export const DOM_ID = {
   gameName: 'game-name',
   gameCount: 'game-count',
   gameResult: 'game-result',
+  gameNameInput: 'game-name-input',
+  gameNameButton: 'game-name-button',
 } as const;
