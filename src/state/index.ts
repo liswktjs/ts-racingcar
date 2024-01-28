@@ -1,5 +1,6 @@
 import GameResultSection from '../components/GameResultSection';
-import { isValidCarNames, isValidGameCount } from '../utils';
+import { DOM_ID } from '../constant';
+import { getElement, isValidCarNames, isValidGameCount } from '../utils';
 
 const GAME_STATE = {
   carList: '',
@@ -16,11 +17,26 @@ export const setGameCount = (count: number): void => {
   checkRacingState();
 };
 
+const initInputValue = (id: string): void => {
+  const input = getElement(id);
+  if (input) {
+    (input as HTMLInputElement).value = '';
+  }
+};
+
+export const initGameState = (): void => {
+  GAME_STATE.carList = '';
+  GAME_STATE.gameCount = 0;
+
+  initInputValue(DOM_ID.gameNameInput);
+  initInputValue(DOM_ID.gameCountInput);
+};
+
 export const checkRacingState = (): void => {
   if (
     isValidCarNames(GAME_STATE.carList) &&
     isValidGameCount(GAME_STATE.gameCount)
   ) {
-    GameResultSection({ gameResult: 'sss' });
+    GameResultSection({ initGameState, gameState: GAME_STATE });
   }
 };
