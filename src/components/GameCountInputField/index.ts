@@ -1,6 +1,7 @@
 import { DOM_ID } from '../../constant';
 import { setGameCount } from '../../state';
 import {
+  alertWrongInput,
   appendChildElement,
   appendChildSection,
   getInputValue,
@@ -23,7 +24,9 @@ const handleGameCountInput = (): void => {
   const value = getInputValue(DOM_ID.gameCountInput);
   if (isValidGameCount(Number(value))) {
     setGameCount(Number(value));
+    return;
   }
+  alertWrongInput('게임 횟수는 정수로 입력해주세요');
 };
 
 const GameCountInputField = (): void => {

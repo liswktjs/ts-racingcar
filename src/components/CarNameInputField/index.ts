@@ -1,5 +1,12 @@
 import { DOM_ID } from '../../constant';
-import { appendChildElement, appendChildSection } from '../../utils';
+import { setCarNameList } from '../../state';
+import {
+  alertWrongInput,
+  appendChildElement,
+  appendChildSection,
+  getInputValue,
+  isValidCarNames,
+} from '../../utils';
 import Button from '../@common/Button';
 import Input from '../@common/Input';
 
@@ -11,6 +18,15 @@ const renderLabel = (): void => {
   label.innerText = '5자 이하의 자동차 이름을 콤마 로 구분하여 입력해주세요';
 
   appendChildElement({ targetElement: label, parentId: DOM_ID.gameName });
+};
+
+const handleCarNameInput = (): void => {
+  const value = getInputValue(DOM_ID.gameNameInput);
+  if (isValidCarNames(value)) {
+    setCarNameList(value);
+    return;
+  }
+  alertWrongInput('각각의 자동차 이름은 5글자 이하여야 합니다');
 };
 
 const CarNameInputField = (): void => {
@@ -27,7 +43,9 @@ const CarNameInputField = (): void => {
   Button({
     id: DOM_ID.gameNameButton,
     parentId: LABEL_ID,
-    clickAction: () => {},
+    clickAction: () => {
+      handleCarNameInput();
+    },
     buttonText: '확인',
   });
 };
