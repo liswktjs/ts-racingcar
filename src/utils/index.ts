@@ -4,3 +4,5 @@ export * from './element/getElement';
 export * from './element/appendSection';
 export * from './input/getInputValue';
 export * from './input/initInputValue';
+export * from './valid/isValidCarNames';
+export * from './valid/isValidGameCount';
