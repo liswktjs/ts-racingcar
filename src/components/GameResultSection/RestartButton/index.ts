@@ -1,3 +1,5 @@
+import { DOM_ID } from '../../../constant';
+import { getElement, isUndefinedOrNull } from '../../../utils';
 import Button from '../../@common/Button';
 
 interface Props {
@@ -7,12 +9,20 @@ interface Props {
 }
 
 const RestartButton = ({ id, initGameState, parentId }: Props): void => {
+  const initGameResultSection = (): void => {
+    const resultSection = getElement(DOM_ID.gameResult);
+    if (!isUndefinedOrNull(resultSection)) {
+      resultSection.innerHTML = '';
+    }
+  };
+
   Button({
     id,
     parentId,
     buttonText: '다시 시작하기',
     clickAction: () => {
       initGameState();
+      initGameResultSection();
     },
   });
 };
