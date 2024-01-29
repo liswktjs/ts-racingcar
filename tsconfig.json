@@ -3,7 +3,7 @@
   "exclude": ["node_modules", "webpack.config.js"],
   "compilerOptions": {
     /* Language and Environment */
-    "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "target": "es2022" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
 
     /* Modules */
     "module": "commonjs" /* Specify what module code is generated. */,
@@ -36,6 +36,6 @@
     "noImplicitReturns": true /* Enable error reporting for codepaths that do not explicitly return in a function. */,
     "noFallthroughCasesInSwitch": true /* Enable error reporting for fallthrough cases in switch statements. */,
     "noUncheckedIndexedAccess": true /* Add 'undefined' to a type when accessed using an index. */,
-    "noImplicitOverride": true /* Ensure overriding members in derived classes are marked with an override modifier. */
-  }
+    "noImplicitOverride": true /* Ensure overriding members in derived classes are marked with an override modifier. */,
+  },
 }
