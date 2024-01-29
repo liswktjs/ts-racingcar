@@ -5,18 +5,18 @@ import RestartButton from './RestartButton';
 
 interface Props {
   initGameState: () => void;
-  carList: string[];
+  carObject: Record<string, number>;
   gameCount: number;
 }
 
 const GameResultSection = ({
   initGameState,
-  carList,
   gameCount,
+  carObject,
 }: Props): void => {
   appendChildSection({ sectionId: DOM_ID.gameResult });
 
-  GameProcess({ gameCount, carList });
+  GameProcess({ gameCount, carObject });
 
   RestartButton({
     initGameState,
