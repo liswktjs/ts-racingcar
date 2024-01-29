@@ -2,9 +2,12 @@ import GameResultSection from '../components/GameResultSection';
 import { DOM_ID } from '../constant';
 import { getElement, isValidCarNames, isValidGameCount } from '../utils';
 
-const GAME_STATE = {
-  carList: '',
-  gameCount: 0,
+const GAME_STATE: {
+  carList: string | null;
+  gameCount: null | number;
+} = {
+  carList: null,
+  gameCount: null,
 };
 
 export const setCarNameList = (carList: string): void => {
@@ -25,8 +28,8 @@ const initInputValue = (id: string): void => {
 };
 
 export const initGameState = (): void => {
-  GAME_STATE.carList = '';
-  GAME_STATE.gameCount = 0;
+  GAME_STATE.carList = null;
+  GAME_STATE.gameCount = null;
 
   initInputValue(DOM_ID.gameNameInput);
   initInputValue(DOM_ID.gameCountInput);
@@ -34,12 +37,18 @@ export const initGameState = (): void => {
 
 export const checkRacingState = (): void => {
   if (
-    isValidCarNames(GAME_STATE.carList) &&
+    isValidCarNames(GAME_STATE.carList ?? '') &&
     isValidGameCount(GAME_STATE.gameCount)
   ) {
-    const carList = GAME_STATE.carList.split(',');
+    const carList = GAME_STATE.carList?.split(',');
     const gameCount = GAME_STATE.gameCount;
 
-    GameResultSection({ initGameState, carList, gameCount });
+    const carObject: Record<string, number> = {};
+
+    carList?.forEach((item) => {
+      carObject[item] = 0;
+    });
+
+    GameResultSection({ initGameState, carObject, gameCount: gameCount ?? 0 });
   }
 };
