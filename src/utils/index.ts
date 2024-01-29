@@ -7,3 +7,4 @@ export * from './input/initInputValue';
 export * from './valid/isValidCarNames';
 export * from './valid/isValidGameCount';
 export * from './alert/alertWrongInput';
+export * from './game/getGameResult';
