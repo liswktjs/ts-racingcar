@@ -37,7 +37,7 @@ export const initGameState = (): void => {
 
 export const checkRacingState = (): void => {
   if (
-    isValidCarNames(GAME_STATE.carList ?? '') &&
+    isValidCarNames(GAME_STATE.carList) &&
     isValidGameCount(GAME_STATE.gameCount)
   ) {
     const carList = GAME_STATE.carList?.split(',');
