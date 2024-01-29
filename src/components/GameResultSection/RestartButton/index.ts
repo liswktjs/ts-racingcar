@@ -3,16 +3,16 @@ import Button from '../../@common/Button';
 interface Props {
   id: string;
   parentId: string;
-  initGame: () => void;
+  initGameState: () => void;
 }
 
-const RestartButton = ({ id, initGame, parentId }: Props): void => {
+const RestartButton = ({ id, initGameState, parentId }: Props): void => {
   Button({
     id,
     parentId,
-    buttonText: '다시 시작하시',
+    buttonText: '다시 시작하기',
     clickAction: () => {
-      initGame;
+      initGameState();
     },
   });
 };

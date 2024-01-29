@@ -37,6 +37,9 @@ export const checkRacingState = (): void => {
     isValidCarNames(GAME_STATE.carList) &&
     isValidGameCount(GAME_STATE.gameCount)
   ) {
-    GameResultSection({ initGameState, gameState: GAME_STATE });
+    const carList = GAME_STATE.carList.split(',');
+    const gameCount = GAME_STATE.gameCount;
+
+    GameResultSection({ initGameState, carList, gameCount });
   }
 };
