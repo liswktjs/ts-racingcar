@@ -1,34 +1,53 @@
 import { DOM_ID } from '../../../constant';
 import { appendChildElement, getGameResult } from '../../../utils';
 
+import './index.css';
+
 interface Props {
   carObject: Record<string, number>;
   gameCount: number;
 }
 
+const CAR_LIST_CONTAINER_ID = 'car-list-container';
+
+const PROCESS_STYLE_CLASS = {
+  carListContainer: 'car-list-container',
+  carContainer: 'car-container',
+  carElement: 'car-element',
+  arrowElement: 'arrow-element',
+};
+
 const renderRacingGame = (carObject: Record<string, number>): void => {
-  const container = document.createElement('div');
-  container.id = 'car-list-container';
+  const listContainer = document.createElement('div');
+  listContainer.id = CAR_LIST_CONTAINER_ID;
+  listContainer.className = PROCESS_STYLE_CLASS.carListContainer;
+
+  appendChildElement({
+    targetElement: listContainer,
+    parentId: DOM_ID.gameResult,
+  });
 
   Object.keys(carObject).forEach((name) => {
     const container = document.createElement('div');
-    container.classList.add('car-container');
+    container.className = PROCESS_STYLE_CLASS.carContainer;
 
     const nameElement = document.createElement('div');
     nameElement.innerText = name;
+    nameElement.className = PROCESS_STYLE_CLASS.carElement;
 
     container.appendChild(nameElement);
 
     for (let i = 0; i < (carObject[name] ?? 0); i++) {
       const arrow = document.createElement('div');
       arrow.innerText = 'V';
+      arrow.className = PROCESS_STYLE_CLASS.arrowElement;
 
       container.appendChild(arrow);
     }
 
     appendChildElement({
       targetElement: container,
-      parentId: DOM_ID.gameResult,
+      parentId: CAR_LIST_CONTAINER_ID,
     });
   });
 };
