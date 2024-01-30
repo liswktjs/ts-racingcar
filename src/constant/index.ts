@@ -9,3 +9,8 @@ export const DOM_ID = {
   gameCountInput: 'game-count-input',
   gameCountButton: 'game-count-button',
 } as const;
+
+export const STYLE_CLASS = {
+  label: 'label',
+  labelContainer: 'label-container',
+} as const;
