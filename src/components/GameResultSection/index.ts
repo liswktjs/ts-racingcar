@@ -1,5 +1,5 @@
 import { DOM_ID } from '../../constant';
-import { appendChildSection } from '../../utils';
+import { appendChildSection, getElement, isUndefinedOrNull } from '../../utils';
 import GameProcess from './GameProcess';
 import RestartButton from './RestartButton';
 
@@ -14,6 +14,14 @@ const GameResultSection = ({
   gameCount,
   carObject,
 }: Props): void => {
+  const isAlreadySectionExist = !isUndefinedOrNull(
+    getElement(DOM_ID.gameResult)
+  );
+
+  if (isAlreadySectionExist) {
+    return;
+  }
+
   appendChildSection({ sectionId: DOM_ID.gameResult });
 
   GameProcess({ gameCount, carObject });

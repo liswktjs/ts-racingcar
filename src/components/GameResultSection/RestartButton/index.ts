@@ -12,7 +12,7 @@ const RestartButton = ({ id, initGameState, parentId }: Props): void => {
   const initGameResultSection = (): void => {
     const resultSection = getElement(DOM_ID.gameResult);
     if (!isUndefinedOrNull(resultSection)) {
-      resultSection.innerHTML = '';
+      resultSection.remove();
     }
   };
 
