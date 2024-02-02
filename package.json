@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-dev": "webpack --mode development",
     "build-prod": "webpack --mode production",
-    "start": "npm run build-prod && node dist/bundle.js"
+    "start": "npm run build-prod && node dist/bundle.js",
+    "cypress:open": "cypress open"
   },
   "author": "",
   "license": "ISC",
@@ -15,9 +16,11 @@
     "@babel/cli": "^7.23.9",
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
+    "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "clean-webpack-plugin": "^4.0.0",
+    "cypress": "^13.6.4",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
