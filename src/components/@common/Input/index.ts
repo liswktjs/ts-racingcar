@@ -1,5 +1,4 @@
 import { appendChildElement } from '../../../utils';
-import './index.css';
 
 interface Props {
   id: string;
