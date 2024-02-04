@@ -29,7 +29,7 @@ const GameResultSection = ({
   RestartButton({
     initGameState,
     parentId: DOM_ID.gameResult,
-    id: 'restart-button',
+    id: DOM_ID.gameRestartButton,
   });
 };
 

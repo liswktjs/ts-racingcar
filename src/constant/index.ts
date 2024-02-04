@@ -8,6 +8,7 @@ export const DOM_ID = {
   gameNameButton: 'game-name-button',
   gameCountInput: 'game-count-input',
   gameCountButton: 'game-count-button',
+  gameRestartButton: 'restart-button',
 } as const;
 
 export const STYLE_CLASS = {
