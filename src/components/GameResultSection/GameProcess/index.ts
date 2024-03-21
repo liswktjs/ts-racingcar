@@ -17,16 +17,7 @@ const PROCESS_STYLE_CLASS = {
   arrowElement: 'arrow-element',
 };
 
-const renderRacingGame = (carObject: Record<string, number>): void => {
-  const listContainer = document.createElement('div');
-  listContainer.id = CAR_LIST_CONTAINER_ID;
-  listContainer.className = PROCESS_STYLE_CLASS.carListContainer;
-
-  appendChildElement({
-    targetElement: listContainer,
-    parentId: DOM_ID.gameResult,
-  });
-
+const renderEachCarProcess = (carObject: Record<string, number>): void => {
   Object.keys(carObject).forEach((name) => {
     const container = document.createElement('div');
     container.className = PROCESS_STYLE_CLASS.carContainer;
@@ -50,6 +41,19 @@ const renderRacingGame = (carObject: Record<string, number>): void => {
       parentId: CAR_LIST_CONTAINER_ID,
     });
   });
+};
+
+const renderRacingGame = (carObject: Record<string, number>): void => {
+  const listContainer = document.createElement('div');
+  listContainer.id = CAR_LIST_CONTAINER_ID;
+  listContainer.className = PROCESS_STYLE_CLASS.carListContainer;
+
+  appendChildElement({
+    targetElement: listContainer,
+    parentId: DOM_ID.gameResult,
+  });
+
+  renderEachCarProcess(carObject);
 };
 
 const renderGameWinner = (carObject: Record<string, number>): void => {
