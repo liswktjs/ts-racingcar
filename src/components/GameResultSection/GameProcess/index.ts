@@ -1,5 +1,6 @@
 import { DOM_ID } from '../../../constant';
 import { appendChildElement, getGameResult } from '../../../utils';
+import { getGameWinner } from '../../../utils/game/getGameWinner';
 
 import './index.css';
 
@@ -57,24 +58,7 @@ const renderRacingGame = (carObject: Record<string, number>): void => {
 };
 
 const renderGameWinner = (carObject: Record<string, number>): void => {
-  const winners = Object.entries(carObject).reduce<{
-    maxValue: number | null;
-    keys: string[];
-  }>(
-    (acc, [key, value]) => {
-      if (acc.maxValue === null) {
-        return { maxValue: value, keys: [key] };
-      }
-      if (value > acc.maxValue) {
-        return { maxValue: value, keys: [key] };
-      }
-      if (value === acc.maxValue) {
-        acc.keys.push(key);
-      }
-      return acc;
-    },
-    { maxValue: null, keys: [] }
-  ).keys;
+  const winners = getGameWinner(carObject);
 
   const winnerElement = document.createElement('h2');
   winnerElement.innerText = `${winners.join(',')}`;
