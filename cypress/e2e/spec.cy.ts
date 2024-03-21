@@ -27,7 +27,7 @@ describe('요구사항에 따라 앱이 동작할 수 있는지 테스트 한다
     cy.get(`#${DOM_ID.gameNameButton}`).click();
     cy.get(`#${DOM_ID.gameCountInput}`).type('3');
     cy.get(`#${DOM_ID.gameCountButton}`).click();
-    cy.get(`#${DOM_ID.gameResult}`).should('exist');
+    cy.get(`#${DOM_ID.gameResult}`).should('be.visible');
   });
 
   it('유저가 자동차 이름과 게임 횟수를 올바르게 입력한 경우 자동차 이름을 게임 결과 내에서 확인 할 수 있다', () => {
@@ -39,7 +39,7 @@ describe('요구사항에 따라 앱이 동작할 수 있는지 테스트 한다
     cy.get(`#${DOM_ID.gameCountButton}`).click();
 
     carNames.split(',').forEach((item) => {
-      cy.get(`.car-element`).contains(item).should('exist');
+      cy.get(`.car-element`).contains(item).should('be.visible');
     });
   });
 
@@ -50,6 +50,6 @@ describe('요구사항에 따라 앱이 동작할 수 있는지 테스트 한다
     cy.get(`#${DOM_ID.gameCountButton}`).click();
     cy.get(`#${DOM_ID.gameRestartButton}`).click();
 
-    cy.get(`#${DOM_ID.gameResult}`).should('not.exist');
+    cy.get(`#${DOM_ID.gameResult}`).should('not.be.visible');
   });
 });
